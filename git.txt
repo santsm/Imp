@@ -1,0 +1,86 @@
+******************************************************************************************************************************************************
+																	GIT/GITHUB
+******************************************************************************************************************************************************
+
+Creating Repository
+
+Make separate directory and folder to work on -- working directory
+
+git init                                                 // will initialize an empty repository
+git status                                              //  to check status of staging environment
+git add .                                              // adding all the files to staging 
+git rm                                                // to remove files from staging area.
+git commit -m 'modified'                              //  committing the changes
+git remote -v 
+git remote add origin <url to repositiry>            // syncing repositories
+git push origin <branch name>                       // to push the files to remote repository
+git clone <repositiry url>                         // to download the all files /whole repository to local from remote repository
+git pull origin master                            // used to pull the latest files from origin branch/repository  or when you're already working in cloned repository and want to pull latest changes 
+git branch <branch name>                         // to create a new branch
+git branch -D <branch name>                     // to delete a branch 
+git checkout <branch name>                     // to switch to new branch
+git branch                                    // to know the working branch
+git log                                      // to check the log for every commit or history
+git stash                                   // to save your work without commiting the code 
+git stash -u                               // to stash untracked files
+git stash pop || git stash apply          // to retrieve/resume working
+git revert <commit id>                   // helps you in reverting to a commit ,to a previous version (commit id can be obtained from git log)
+git stash list                           / It will display the list of stashed items like
+git stash drop <Stash id>  
+
+
+git diff <commit-id of version1> <commit-id of version2>                         //help us in checking the differences between two versions of files
+git config --global user.name "username"
+git config --global user.email "email"
+git config --global --list 
+git config --global color.ui "auto"
+ls -a                                                                          // to check hidden files
+git merge <branch name>
+git commit --amend   // to fix the broken commit
+git instaweb  // is used to automatically direct a web browser and run a webserver with an interface into your local repository.
+git is-tree  // represents a tree object including the mode and the name of each item and the SHA-1 value of the blob or the tree.
+git checkout -b [branch name]  // creates a new branch and also switches to it.
+git tag [commitID] // used to give tags to the specified commit.
+git show [commit]  // shows the metadata and content changes of the specified commit.
+git branch --merged – It lists the branches that have been merged into the current branch.
+git branch --no-merged – It lists the branches that have not been merged.
+
+
+
+
+
+
+
+How To Avoid Merge Conflicts
+
+$ git config –global diff.tool <diff-tool>   // Its always a good idea to compare branches with a diff tool this can help spot potential trouble spots before merging.
+
+git difftool  branch1 branch2
+
+$ git fetch  //  Doing a git fetch gives you an opportunity to do a git diff between your local branch and the remote branch spotting potential conflicts in the process.
+
+Use git rerere
+
+$ git config rerere.enabled true //   Basically it records a merge conflict that has been resolved and reuses it again when that merge conflict happens again.
+
+
+Git Pull = Git fetch + git merge
+
+
+How to revert previous commit in git?
+
+   (F)
+A-B-C
+    ↑
+  master
+  
+ git reset --hard HEAD~1  // Now B is the HEAD. Because you used --hard, your files are reset to their state at commit B.
+ 
+ To undo the commit but keep your changes:
+ 
+ git reset HEAD~1       //  Now we tell Git to move the HEAD pointer back one commit (B) and leave the files as they are and git status shows the changes you had checked into C.
+
+
+To undo your commit but leave your files and your index
+
+git reset --soft HEAD~1  // When you do git status, you'll see that the same files are in the index as before.

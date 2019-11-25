@@ -1,0 +1,42 @@
+-----docker------
+
+
+***************************************************************************************************************************
+sudo usermod -aG docker $user // to run the commands without using sudo command // making the docker user as Sudo user
+***************************************************************************************************************************
+
+
+sudo apt-get update
+sudo apt-get install docker.io
+docker --version
+docker pull <image name>
+docker images  //to check the images present
+docker run <image name>  // to run the docker image
+docker run -it "make conatainer itercative 
+docker run -d "make conatiner deamon -- to run in background
+docker ps // to check all conatiners running in s/m
+sudo docker stop <conatiner name > // to stop the container
+sudo docker ps -a // to check all the containers avaliable in the s/m
+docker exec -it <conatiner id > bash
+exit // to get out from the conatiner
+docker kill <conatiner id> // to kill the conatiner
+docker rm <conatiner id> // to remove the conatainer
+docker rmi <image id> // to remove image from s/m
+
+
+-- save changes inside conatiner --
+
+docker commit <conatiner id > <name for image >  // this will create new docker image with all the updated changes
+
+--- to rmove all the conatiners in single command ---
+
+sudo docker rm -f $(sudo docker ps -a -q)
+
+---- Pushing to Docker Hub ----
+sudo docker login // username and password
+sudo docker push < docker image name >
+sudo docker pull < docker image name >
+
+
+
+  
