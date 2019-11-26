@@ -1,0 +1,14 @@
+Create the first container that will act as the server-sshserver
+
+# docker run -i -t -p 2222:22 --name sshserver ubuntu bash
+Create a second container that acts like an SSH client
+
+# docker run -i -t --name sshclient --link  sshserver:sshserver ubuntu bash
+Docker--link creates private channels between containers
+
+inspect your linked container with docker inspect
+
+~# docker inspect -f "{{ .HostConfig.Links }}" sshclient[/sshserver:/sshclient/sshserver]
+SSH into the SSH server with its IP
+
+#ssh root@172.17.0.3 -p 22
